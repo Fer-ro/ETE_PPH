@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterSite.master.cs" Inherits="ETE_PPH.MasterSite" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />   
+    <link href="/Scripts/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="/Scripts/jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="/Scripts/jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="/Scripts/jqwidgets/globalization/globalize.js"></script>
+    <script src="/Scripts/jqwidgets/jqxdatetimeinput.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body >
+
+    <style>
+        /*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template/simple-sidebar)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+        #wrapper {
+            overflow-x: hidden;
+        
+        }
+
+        #sidebar_wrapper {
+            min-height: 100vh;
+            margin-left: -15rem;
+            -webkit-transition: margin .25s ease-out;
+            -moz-transition: margin .25s ease-out;
+            -o-transition: margin .25s ease-out;
+            transition: margin .25s ease-out;
+              position:fixed;
+        }
+
+            #sidebar_wrapper .sidebar-heading {
+                padding: 0.875rem 1.25rem;
+                font-size: 1.2rem;
+            }
+
+            #sidebar_wrapper .list-group {
+                width: 15rem;
+            }
+
+        #page-content-wrapper {
+            min-width: 100vw;
+        }
+
+        #wrapper.toggled #sidebar_wrapper {
+            margin-left: 0;
+        }
+
+        @media (min-width: 768px) {
+            #sidebar_wrapper {
+                margin-left: 0;
+            }
+          
+
+            #page-content-wrapper {
+                min-width: 0;
+                width: 100%;
+            }
+
+            #wrapper.toggled #sidebar_wrapper {
+                margin-left: -15rem;
+            }
+        }
+    </style>
+    <form id="form1" runat="server">
+        <div class="d-flex"  id="wrapper" >
+            <!-- Sidebar -->
+            <div class="border-right"  id="sidebar_wrapper"  runat="server">
+                <div class="sidebar-heading text-white" style="background-color:#3d4c74;" >F&P DE MEXICO </div>
+                <div class="list-group list-group-flush" style="background-color:#e4e4ed;" id="Lista_Menu" runat="server">
+                     <a class="list-group-item" runat="server" id="ETE">ETE</a>                                                        
+                     <a class="list-group-item" id="Usuarios" runat="server">Usuarios</a>
+                </div>
+            </div>
+            
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+
+                <nav class="navbar navbar-expand-lg border-bottom" style="background-color:#3d4c74;" >
+                    <button class="btn btn-primary" id="menu-toggle" >Menu</button>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <asp:Button ID="BTN_Logout" runat="server" Text="-" OnClick="BTN_Logout_Click" class="btn btn-primary" />
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+               <div  style="margin:20px 0px 0px 250px;padding:20px; scroll-behavior:auto;"> 
+                   <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                      
+                </asp:ContentPlaceHolder>
+               </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->     
+    </form>
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+    
+</body>
+</html>
